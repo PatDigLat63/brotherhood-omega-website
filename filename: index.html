@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brotherhood Omega Dynasty Empire</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a3a2a 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #D4AF37;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            color: #D4AF37;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #e8e8e8;
+            font-style: italic;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background-color: #1a1a1a;
+            border-left: 4px solid #D4AF37;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            color: #D4AF37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .agent-card {
+            background-color: #0a0a0a;
+            padding: 30px;
+            border: 2px solid #D4AF37;
+            text-align: center;
+        }
+        
+        .agent-card h3 {
+            font-size: 1.8rem;
+            color: #D4AF37;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .agent-card p {
+            color: #e8e8e8;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .agent-title {
+            color: #1a3a2a;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .asset-item {
+            background-color: #0a0a0a;
+            padding: 25px;
+            border: 1px solid #D4AF37;
+            text-align: center;
+        }
+        
+        .asset-item h4 {
+            color: #D4AF37;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .asset-number {
+            font-size: 2rem;
+            color: #e8e8e8;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .track {
+            background-color: #0a0a0a;
+            padding: 30px;
+            border: 2px solid #D4AF37;
+        }
+        
+        .track h4 {
+            color: #D4AF37;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .track p {
+            color: #e8e8e8;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .track-details {
+            color: #1a3a2a;
+            font-size: 0.85rem;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
+        .motto {
+            background-color: #D4AF37;
+            color: #0a0a0a;
+            padding: 30px;
+            text-align: center;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 40px 0;
+            font-weight: bold;
+        }
+        
+        .mission-text {
+            font-size: 1.1rem;
+            color: #e8e8e8;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+        
+        .dedication {
+            background-color: #1a3a2a;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+            border: 2px solid #D4AF37;
+        }
+        
+        .dedication h4 {
+            color: #D4AF37;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .dedication-names {
+            font-size: 1.2rem;
+            color: #e8e8e8;
+            letter-spacing: 2px;
+        }
+        
+        footer {
+            background-color: #0a0a0a;
+            border-top: 3px solid #D4AF37;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        footer p {
+            color: #D4AF37;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .omega-symbol {
+            font-size: 2rem;
+            color: #D4AF37;
+            margin: 20px 0;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #D4AF37;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .social-links a:hover {
+            color: #e8e8e8;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .motto {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ω Brotherhood Omega Dynasty Empire Ω</h1>
+        <p>Autonomous Wealth Ecosystem | Multi-Generational | Family First</p>
+    </header>
+    
+    <div class="container">
+        <section>
+            <h2>The Four Agents</h2>
+            <div class="agent-grid">
+                <div class="agent-card">
+                    <h3>PATRICK</h3>
+                    <div class="agent-title">🔱 Intelligence Hunter</div>
+                    <p>Market Scanner, Vision Keeper, Intelligence Strategist</p>
+                    <p>Scans 100+ markets per minute. Identifies opportunities. Sees what others miss.</p>
+                    <p><strong>Monthly: $1,500-2,000</strong></p>
+                </div>
+                
+                <div class="agent-card">
+                    <h3>HASHIM</h3>
+                    <div class="agent-title">⚖️ Treasury Master</div>
+                    <p>Wealth Compounder, Yield Generator, Forever Builder</p>
+                    <p>12% APY target. Compounding wealth. Sacred holdings protected. Passive income flowing.</p>
+                    <p><strong>Monthly: Variable (Passive Income)</strong></p>
+                </div>
+                
+                <div class="agent-card">
+                    <h3>BOSSMAN</h3>
+                    <div class="agent-title">🛡️ Risk Guardian</div>
+                    <p>Protector, Circuit Breaker, Defense Chief</p>
+                    <p>Zero liquidation events. Risk thresholds enforced. Fortress protected 24/7/365.</p>
+                    <p><strong>Protection: 100% Guaranteed</strong></p>
+                </div>
+                
+                <div class="agent-card">
+                    <h3>DJ SHARPSHOOTER</h3>
+                    <div class="agent-title">⚡ Executor</div>
+                    <p>MEV Master, Precision Trader, Profit Closer</p>
+                    <p>147 trades daily. 67% win rate. $500-2,000 MEV capture per day.</p>
+                    <p><strong>Monthly: $6,000-15,000+</strong></p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Bitcoin Fortress — Real Assets</h2>
+            <div class="asset-grid">
+                <div class="asset-item">
+                    <h4>Ordinals</h4>
+                    <div class="asset-number">139</div>
+                    <p>Never Sell. Generational Legacy.</p>
+                </div>
+                
+                <div class="asset-item">
+                    <h4>Bitmaps</h4>
+                    <div class="asset-number">170</div>
+                    <p>Core Fortress. Forever Hold.</p>
+                </div>
+                
+                <div class="asset-item">
+                    <h4>Runes</h4>
+                    <div class="asset-number">Active</div>
+                    <p>Yield Generating. Passive Income.</p>
+                </div>
+                
+                <div class="asset-item">
+                    <h4>Rare Sats</h4>
+                    <div class="asset-number">Specialty</div>
+                    <p>Forever Accumulate. Scarcity Play.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="motto">Ω CHUKUA KONTROLI YOTE Ω<br>Take Control of Everything</div>
+        
+        <section>
+            <h2>Mission Statement</h2>
+            <div class="mission-text">
+                <p>Brotherhood Omega Dynasty Empire is an autonomous multi-generational wealth ecosystem dedicated to creating permanent financial freedom for our family: James, Annette, Leanna, and Eva.</p>
+                
+                <p>We operate four autonomous agents — PATRICK (Intelligence), HASHIM (Treasury), BOSSMAN (Risk), and DJ SHARPSHOOTER (Execution) — working as a unified SWARM team, 24/7/365.</p>
+                
+                <p>Our foundation is real: 139 Ordinals, 170 Bitmaps, Runes, Rare Sats, and verified passive income flowing monthly. We never liquidate. We never panic sell. We compound forever.</p>
+                
+                <p>This is not a promise. This is a system. This is our legacy.</p>
+            </div>
+            
+            <div class="dedication">
+                <h4>Dedicated To</h4>
+                <div class="dedication-names">JAMES • ANNETTE • LEANNA • EVA</div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Official Music Anthems</h2>
+            <div class="music-grid">
+                <div class="track">
+                    <h4>Brotherhood Omega Dynasty Empire</h4>
+                    <p class="track-details">Empire Anthem</p>
+                    <p>The foundational anthem featuring all four agents. Empire vision, collective power, unstoppable rise.</p>
+                </div>
+                
+                <div class="track">
+                    <h4>Brotherhood Agenthustle Empire</h4>
+                    <p class="track-details">Agent Spotlight | 3:42</p>
+                    <p>PATRICK on vision, HASHIM in treasury, BOSSMAN moving weight, DJ Sharpshooter on the map.</p>
+                </div>
+                
+                <div class="track">
+                    <h4>SWARM Agenthustle Dynasty</h4>
+                    <p class="track-details">Execution Focus | 3:28</p>
+                    <p>All four agents unified. Agenthustle.ai in front. Omega Swarm never loses.</p>
+                </div>
+                
+                <div class="track">
+                    <h4>Bad Boy Brotherhood</h4>
+                    <p class="track-details">Victory Anthem</p>
+                    <p>Individual agent spotlights. PATRICK, HASHIM, BOSSMAN, DJ SHARPSHOOTER. Bad Boy Records era. Group chant: BAD BOY BROTHERHOOD!</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>The Team</h2>
+            <div class="mission-text">
+                <p><strong>Commander:</strong> Patrick "DJ Sharpshooter" La Touche</p>
+                <p><strong>Founder & Operator:</strong> Solo infrastructure, iOS management (Termius SSH, iPhone 13)</p>
+                <p><strong>Also Founder:</strong> M'TANGA Group (Restaurant, Salons, Boutique) — Kigamboni, Dar es Salaam, Tanzania</p>
+                <p><strong>Professional Background:</strong> Security & Counter-Terrorism</p>
+                <p><strong>Vision:</strong> Multi-generational wealth empire. Real execution. No shortcuts.</p>
+                <p style="margin-top: 20px; color: #D4AF37;"><strong>Motto:</strong> CHUKUA KONTROLI YOTE — Take Control of Everything</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Connect With Us</h2>
+            <div class="mission-text">
+                <p style="text-align: center; font-size: 1.1rem;">
+                    Join the Brotherhood. Learn the system. Build wealth forever.
+                </p>
+                <p style="text-align: center; margin-top: 20px;">
+                    <strong>Official Email:</strong> dynasty_empire@brotherhoodomegadynasty.com
+                </p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Brotherhood Omega Dynasty Empire</p>
+        <div class="omega-symbol">Ω</div>
+        <p>Autonomous. Multi-Generational. Forever.</p>
+        <p style="margin-top: 20px; font-size: 0.95rem;">CHUKUA KONTROLI YOTE</p>
+        <div class="social-links">
+            <a href="https://twitter.com">Twitter</a>
+            <a href="https://discord.com">Discord</a>
+            <a href="https://agenthustle.ai">AgentHustle.ai</a>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.9rem; color: #1a3a2a;">© 2026 Brotherhood Omega Dynasty Empire. For James, Annette, Leanna, Eva. CHUKUA KONTROLI YOTE.</p>
+    </footer>
+</body>
+</html>
