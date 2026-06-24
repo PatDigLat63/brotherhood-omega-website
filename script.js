@@ -4,9 +4,9 @@
   'use strict';
 
   /* ===== Navbar: scroll class + mobile toggle ===== */
-  var navbar = document.getElementById('navbar');
-  var navToggle = document.getElementById('navToggle');
-  var navLinks = document.getElementById('navLinks');
+  const navbar = document.getElementById('navbar');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
 
   window.addEventListener('scroll', function () {
     if (window.scrollY > 20) {
@@ -18,7 +18,7 @@
 
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', function () {
-      var isOpen = navLinks.classList.toggle('open');
+      const isOpen = navLinks.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
@@ -32,12 +32,12 @@
   }
 
   /* ===== Scroll-reveal: add 'visible' class when elements enter viewport ===== */
-  var revealTargets = document.querySelectorAll(
+  const revealTargets = document.querySelectorAll(
     '.agent-card, .pillar, .fortress-stat, .anthem-card, .team-card, .swarm-node'
   );
 
   if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -56,15 +56,15 @@
   }
 
   /* ===== Active nav link highlight on scroll ===== */
-  var sections = document.querySelectorAll('section[id]');
-  var navLinkEls = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinkEls = document.querySelectorAll('.nav-links a');
 
   function updateActiveNav() {
-    var scrollPos = window.scrollY + 80;
+    const scrollPos = window.scrollY + 80;
     sections.forEach(function (section) {
-      var top = section.offsetTop;
-      var bottom = top + section.offsetHeight;
-      var id = section.getAttribute('id');
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+      const id = section.getAttribute('id');
       if (scrollPos >= top && scrollPos < bottom) {
         navLinkEls.forEach(function (link) {
           link.classList.remove('active');
@@ -82,8 +82,6 @@
   /* ===== Anthem play button interaction ===== */
   document.querySelectorAll('.anthem-play:not(.cs)').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var card = btn.closest('.anthem-card');
-      var title = card.querySelector('h3') ? card.querySelector('h3').textContent : 'Anthem';
       // Visual feedback — pulse animation
       btn.style.transform = 'scale(0.9)';
       setTimeout(function () { btn.style.transform = ''; }, 150);
