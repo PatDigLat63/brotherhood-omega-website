@@ -863,7 +863,7 @@ footer {
 
 /* ======================================================
    RESPONSIVE
-   — Breakpoints: tablet/mobile ≤768px, small mobile ≤480px
+   -- Breakpoints: tablet/mobile <=768px, small mobile <=480px
    ====================================================== */
 @media (max-width: 768px) {
   .nav-links {
