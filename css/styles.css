@@ -153,19 +153,19 @@ a:hover { color: var(--gold-light); }
 
 .nav-links a:hover { color: var(--gold); }
 
-.nav-cta {
+.nav-links .nav-cta {
   padding: 8px 20px;
   border: 1px solid var(--gold);
   border-radius: var(--radius);
-  color: var(--gold) !important;
-  font-size: 0.82rem !important;
+  color: var(--gold);
+  font-size: 0.82rem;
   letter-spacing: 0.08em;
-  transition: background var(--transition), color var(--transition) !important;
+  transition: background var(--transition), color var(--transition);
 }
 
-.nav-cta:hover {
-  background: var(--gold) !important;
-  color: var(--black) !important;
+.nav-links .nav-cta:hover {
+  background: var(--gold);
+  color: var(--black);
 }
 
 .nav-toggle {
@@ -863,6 +863,7 @@ footer {
 
 /* ======================================================
    RESPONSIVE
+   — Breakpoints: tablet/mobile ≤768px, small mobile ≤480px
    ====================================================== */
 @media (max-width: 768px) {
   .nav-links {

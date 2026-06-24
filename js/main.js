@@ -18,8 +18,9 @@
 
   if (toggle && navLinks) {
     toggle.addEventListener('click', function () {
-      navLinks.classList.toggle('open');
+      const isOpen = navLinks.classList.toggle('open');
       toggle.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     /* Close on link click */
@@ -27,6 +28,7 @@
       link.addEventListener('click', function () {
         navLinks.classList.remove('open');
         toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -98,7 +100,8 @@
 
   /* ---- Animate stats counter on scroll into view ---- */
   function animateCounter(el) {
-    const target = parseFloat(el.dataset.target || el.textContent.replace(/[^0-9.]/g, ''));
+    const target = parseFloat(el.dataset.target);
+    if (isNaN(target)) { return; }
     const suffix = el.dataset.suffix || '';
     const prefix = el.dataset.prefix || '';
     const duration = 1800;
