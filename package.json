@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "mkdir -p dist && cp -r public/* dist/ 2>/dev/null || true && cp index.html dist/ 2>/dev/null || true",
-    "test": "echo 'Tests passed'",
+    "test": "npm run build && test -f dist/index.html && echo 'Website build validation passed'",
     "dev": "echo 'Development server would start here'"
   },
   "keywords": [
