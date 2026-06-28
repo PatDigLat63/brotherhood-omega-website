@@ -2,7 +2,7 @@
 # This shows the CORRECT health check settings that fix the "unhealthy" issue
 #
 # KEY FIXES:
-# - start_period: 60s    (CRITICAL! Give services 60s to initialize)
+# - start_period: 90s    (CRITICAL! Give services 60s to initialize)
 # - timeout: 15s         (Reasonable response time)
 # - retries: 5           (Don't fail immediately)
 # - interval: 45s        (Not too aggressive)
@@ -63,7 +63,7 @@ services:
       interval: 45s         # Check every 45s (not too aggressive)
       timeout: 15s          # Wait up to 15s for response
       retries: 5            # Allow 5 consecutive failures
-      start_period: 60s     # ✅ CRITICAL: Grace period for startup/init
+      start_period: 90s     # ✅ CRITICAL: Grace period for startup/init (increased to 90s)
     
     networks:
       - omega_network
@@ -86,7 +86,7 @@ services:
       interval: 45s
       timeout: 15s
       retries: 5
-      start_period: 60s     # ✅ CRITICAL
+      start_period: 90s     # ✅ CRITICAL
     
     networks:
       - omega_network
@@ -109,7 +109,7 @@ services:
       interval: 45s
       timeout: 15s
       retries: 5
-      start_period: 60s     # ✅ CRITICAL
+      start_period: 90s     # ✅ CRITICAL
     
     networks:
       - omega_network
@@ -132,7 +132,7 @@ services:
       interval: 45s
       timeout: 15s
       retries: 5
-      start_period: 60s     # ✅ CRITICAL
+      start_period: 90s     # ✅ CRITICAL
     
     networks:
       - omega_network
@@ -155,7 +155,7 @@ services:
       interval: 45s
       timeout: 15s
       retries: 5
-      start_period: 60s     # ✅ CRITICAL
+      start_period: 90s     # ✅ CRITICAL
     
     networks:
       - omega_network
@@ -178,7 +178,7 @@ services:
       interval: 45s
       timeout: 15s
       retries: 5
-      start_period: 60s     # ✅ CRITICAL
+      start_period: 90s     # ✅ CRITICAL
     
     networks:
       - omega_network
@@ -203,7 +203,7 @@ services:
       interval: 45s
       timeout: 15s
       retries: 5
-      start_period: 60s     # ✅ CRITICAL
+      start_period: 90s     # ✅ CRITICAL
     
     networks:
       - omega_network
@@ -226,7 +226,7 @@ services:
       interval: 45s
       timeout: 15s
       retries: 5
-      start_period: 60s     # ✅ CRITICAL
+      start_period: 90s     # ✅ CRITICAL
     
     networks:
       - omega_network
@@ -264,7 +264,7 @@ networks:
 # ===== DEPLOYMENT NOTES =====
 #
 # 1. HEALTH CHECK CRITICAL SETTINGS:
-#    - start_period: 60s   ← This is what fixes the "unhealthy" issue
+#    - start_period: 90s   ← This is what fixes the "unhealthy" issue
 #    - timeout: 15s        ← Give services time to respond
 #    - retries: 5          ← Don't fail immediately
 #
