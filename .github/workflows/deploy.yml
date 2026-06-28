@@ -127,7 +127,8 @@ jobs:
           fi
 
       - name: Deploy to Droplet
-        if: success() || true
+        if: success()
+        continue-on-error: true
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ env.DROPLET_IP }}
@@ -162,6 +163,7 @@ jobs:
 
       - name: Telegram Notification
         if: always()
+        continue-on-error: true
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.OMEGA_TELEGRAM_CHAT_ID }}
