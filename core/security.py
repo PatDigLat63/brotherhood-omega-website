@@ -1,4 +1,7 @@
 """Security module with Vault encryption"""
+import base64
+import hashlib
+
 from cryptography.fernet import Fernet
 from core.config import settings
 
@@ -8,11 +11,27 @@ class SecurityError(Exception):
 class Vault:
     def __init__(self):
         key = settings.MASTER_ENCRYPTION_KEY.get_secret_value()
-        # Pad key to 32 bytes if needed
-        key_bytes = key.encode()
-        if len(key_bytes) < 32:
-            key_bytes = key_bytes.ljust(32, b'=')
-        self.cipher = Fernet(key_bytes)
+        self.cipher = Fernet(self._normalize_key(key))
+
+    @staticmethod
+    def _normalize_key(key: str) -> bytes:
+        key_bytes = key.strip().encode()
+
+        try:
+            Fernet(key_bytes)
+            return key_bytes
+        except (TypeError, ValueError):
+            pass
+
+        try:
+            decoded = base64.urlsafe_b64decode(key_bytes)
+        except (ValueError, TypeError):
+            decoded = key_bytes
+
+        if len(decoded) != 32:
+            decoded = hashlib.sha256(decoded).digest()
+
+        return base64.urlsafe_b64encode(decoded)
     
     def encrypt(self, data: bytes) -> bytes:
         return self.cipher.encrypt(data)
