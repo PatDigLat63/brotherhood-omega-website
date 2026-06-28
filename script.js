@@ -3,6 +3,15 @@
 (function () {
   'use strict';
 
+  const REVEAL_THRESHOLD = 0.12;
+  const CONTACT_EMAIL = 'contact@brotherhoodomega.com';
+
+  /* ===== Set contact email link ===== */
+  const contactBtn = document.querySelector('.contact-btn');
+  if (contactBtn) {
+    contactBtn.href = 'mailto:' + CONTACT_EMAIL;
+  }
+
   /* ===== Navbar: scroll class + mobile toggle ===== */
   const navbar = document.getElementById('navbar');
   const navToggle = document.getElementById('navToggle');
@@ -46,7 +55,7 @@
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: REVEAL_THRESHOLD }
     );
 
     revealTargets.forEach(function (el) {
