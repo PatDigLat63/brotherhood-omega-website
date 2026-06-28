@@ -1,0 +1,250 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║           🔱 BROTHERHOOD OMEGA SWARM HEALTH MONITORING SYSTEM 🔱           ║
+║                                                                            ║
+║                     Complete Recovery & Diagnostics Kit                   ║
+║                                                                            ║
+║                         STATUS: READY FOR DEPLOYMENT                      ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📦 PACKAGE CONTENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+CORE MONITORING SYSTEM (Python)
+───────────────────────────────────────────────────────────────────────────────
+  core/monitoring.py                         405 lines
+    • SwarmMonitor - Real-time health checks
+    • DiagnosticAnalyzer - Auto-detect & fix
+    • Health history & uptime trends
+    
+  core/alerts.py                             325 lines
+    • TelegramAlerter - Send alerts
+    • AlertManager - Prevent flooding
+    • Custom alert types
+
+CLI MONITORING TOOL
+───────────────────────────────────────────────────────────────────────────────
+  bin/monitor.py                             335 lines
+    • Commands: status, watch, history, diagnose, alert
+    • Real-time dashboards
+    • Auto-generated fixes
+
+DOCUMENTATION
+───────────────────────────────────────────────────────────────────────────────
+  HEALTH_STATUS.md                           350 lines
+    • Current situation & root cause
+    • Recovery procedures (3 options)
+    • Timeline & success criteria
+    
+  MONITORING.md                              500 lines
+    • Complete technical guide
+    • Architecture details
+    • Failure diagnosis procedures
+    • Permanent fixes
+    
+  QUICK_FIX.sh                               325 lines
+    • Automated recovery script
+    • Step-by-step diagnostics
+    • Permanent fix procedures
+    
+  docker-compose.example.yml                 250 lines
+    • Reference configuration
+    • Annotated with fixes
+    • All 9 services configured
+
+TESTING
+───────────────────────────────────────────────────────────────────────────────
+  tests/test_monitoring.py                   315 lines
+    • Health check logic tests
+    • Diagnostic analyzer tests
+    • Alert system tests
+    • AlertManager cooldown tests
+
+CONFIGURATION
+───────────────────────────────────────────────────────────────────────────────
+  requirements.txt                           +2 lines
+    • Added: pytest, pytest-asyncio
+
+═══════════════════════════════════════════════════════════════════════════════
+TOTAL: ~2,500 lines of code + documentation
+
+🚀 QUICK START (Choose One)
+═══════════════════════════════════════════════════════════════════════════════
+
+OPTION 1: Check Status Now (1 minute)
+  $ python bin/monitor.py status
+
+OPTION 2: Diagnose & Fix (15 minutes)
+  $ python bin/monitor.py diagnose
+  [Follow suggested commands]
+
+OPTION 3: Complete Recovery (2 hours)
+  $ bash QUICK_FIX.sh
+
+🎯 KEY FEATURE: Docker Health Check Fix
+═══════════════════════════════════════════════════════════════════════════════
+
+THE PROBLEM:
+  8 out of 11 containers marked (unhealthy)
+  Cause: Timeout during startup
+  
+THE FIX (one setting in docker-compose.yml):
+  
+  healthcheck:
+    start_period: 60s    ← This is the key change
+    timeout: 15s         ← Increase from 10s
+    retries: 5           ← Increase from 3
+
+📊 MONITORING CAPABILITIES
+═══════════════════════════════════════════════════════════════════════════════
+
+Real-time Checks:
+  • All 9 agent services monitored
+  • Response time tracking (milliseconds)
+  • Automatic error detection & categorization
+
+Diagnostics:
+  • Auto-detect failure type (timeout, refused, 500, etc.)
+  • Suggest root causes
+  • Generate debugging commands
+  • Priority-ordered fixes
+
+Alerts:
+  • Service down notifications
+  • Service recovery alerts
+  • Swarm health reports
+  • Telegram integration
+  • Cooldown (prevent flooding)
+
+Trends:
+  • Uptime % (1min, 5min, 1hr windows)
+  • Average response time
+  • Service history (100 checks stored)
+
+📈 SERVICES MONITORED
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ omega_patrick       (Scanner Agent)        Port 3005
+✅ omega_dj            (Executor Agent)       Port 3003
+✅ omega_bossman       (Risk Guardian)        Port 3006
+✅ omega_hashim        (Compounder)           Port 3004
+✅ omega_hustle_bridge (Bridge Service)       Port 3001
+✅ omega_oracle_engine (Oracle)               Port 3002
+✅ omega_dashboard     (Dashboard)            Port 8082
+✅ omega_agentbus      (AgentBus)             Port 8081
+✅ postgres            (Database)             Port 5432
+✅ redis               (Cache)                Port 6379
+
+💡 INTEGRATION NOTES
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Works with existing core/config.py
+✅ Uses existing core/security.py for encryption
+✅ Async patterns (httpx, asyncio)
+✅ Telegram bot integration via settings
+✅ No new external dependencies beyond requirements.txt
+✅ Compatible with GitHub Actions CI/CD
+✅ Can be deployed to droplet at /opt/omega-dynasty-v6
+
+🔧 DEPLOYMENT STEPS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Immediate Recovery (5 min):
+   ssh root@206.189.118.255
+   cd /opt/omega-dynasty-v6
+   docker compose restart
+   sleep 60
+   docker ps
+
+2. Deploy Monitoring (10 min):
+   scp core/monitoring.py root@206.189.118.255:/opt/omega-dynasty-v6/core/
+   scp core/alerts.py root@206.189.118.255:/opt/omega-dynasty-v6/core/
+   scp bin/monitor.py root@206.189.118.255:/opt/omega-dynasty-v6/bin/
+
+3. Setup Automatic Alerts (5 min):
+   # Add to droplet crontab:
+   */5 * * * * cd /opt/omega-dynasty-v6 && python bin/monitor.py alert
+
+4. Test Everything (5 min):
+   python bin/monitor.py status
+   python bin/monitor.py watch 30
+
+⏱️ TIMELINE TO RECOVERY
+═══════════════════════════════════════════════════════════════════════════════
+
+  0-5 min    Diagnostics        python bin/monitor.py diagnose
+  5-10 min   SSH & Logs         Check containers for errors
+  10-15 min  Restart            docker compose restart
+  15-80 min  Wait               60s startup grace period
+  80-85 min  Verify             docker ps → All healthy ✅
+  85-120 min Permanent Fix      Update docker-compose.yml
+  
+  TOTAL: ~2 hours to full recovery & monitoring
+
+✅ SUCCESS CRITERIA
+═══════════════════════════════════════════════════════════════════════════════
+
+Recovery is complete when:
+  ☐ docker ps shows all containers "healthy"
+  ☐ python bin/monitor.py status shows 9/9 ✅
+  ☐ curl http://206.189.118.255:3005/health returns 200
+  ☐ Dashboard loads at http://206.189.118.255:8082
+  ☐ Telegram alerts show green status messages
+  ☐ Agents accepting trades again
+
+📚 DOCUMENTATION FILES
+═══════════════════════════════════════════════════════════════════════════════
+
+START HERE:
+  • HEALTH_STATUS.md       - Current situation & recovery guide
+  • QUICK_FIX.sh           - Automated diagnostics & fixes
+
+TECHNICAL DETAILS:
+  • MONITORING.md          - Full architecture & procedures
+  • docker-compose.example.yml - Reference configuration
+
+REFERENCE:
+  • core/monitoring.py     - Health check implementation
+  • core/alerts.py         - Alert system
+  • bin/monitor.py         - CLI tool
+  • tests/test_monitoring.py - Test suite
+
+🔗 COMMANDS YOU'LL USE
+═══════════════════════════════════════════════════════════════════════════════
+
+Most Important (use first):
+  python bin/monitor.py status       # Check current health
+  python bin/monitor.py diagnose     # Get fixes
+
+Regular Use:
+  python bin/monitor.py watch 30     # Monitor continuously
+  python bin/monitor.py history SERVICE   # View service history
+  python bin/monitor.py alert        # Send Telegram alert
+
+On Droplet (after recovery):
+  docker logs omega_patrick --tail 100
+  curl http://localhost:3005/health
+  python bin/monitor.py status
+
+🎁 BONUS FEATURES
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Automatic failure diagnosis (no manual debugging)
+✅ Telegram integration (get alerts anywhere)
+✅ Uptime tracking (trending)
+✅ Health history (last 100 checks per service)
+✅ Cooldown system (prevent alert flooding)
+✅ CLI tool (easy to use)
+✅ Comprehensive tests (verify correctness)
+✅ Full documentation (understand everything)
+✅ Example configs (reference implementations)
+✅ Recovery script (automate the process)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+STATUS:  🟢 READY
+NEXT:    Run diagnostics
+COMMAND: python bin/monitor.py diagnose
+
+🔱 CHUKUA KONTROLI YOTE - The swarm will be healthy 🔱
+
+═══════════════════════════════════════════════════════════════════════════════
