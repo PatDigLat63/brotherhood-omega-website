@@ -1,0 +1,21 @@
+{
+  "name": "brotherhood-omega-website",
+  "version": "1.0.0",
+  "description": "Official Brotherhood Omega Dynasty Empire website",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p dist/css dist/js && cp index.html dist/ && cp css/styles.css dist/css/ && cp js/main.js dist/js/",
+    "test": "npm run build && test -f dist/index.html && test -f dist/css/styles.css && test -f dist/js/main.js && echo 'Website build validation passed'",
+    "dev": "echo 'Development server would start here'"
+  },
+  "keywords": [
+    "brotherhood",
+    "omega",
+    "dynasty",
+    "empire",
+    "wealth",
+    "ecosystem"
+  ],
+  "author": "Brotherhood Omega Dynasty Empire",
+  "license": "MIT"
+}
