@@ -1,0 +1,319 @@
+# Example docker-compose.yml configuration for Brotherhood Omega
+# This shows the CORRECT health check settings that fix the "unhealthy" issue
+#
+# KEY FIXES:
+# - start_period: 60s    (CRITICAL! Give services 60s to initialize)
+# - timeout: 15s         (Reasonable response time)
+# - retries: 5           (Don't fail immediately)
+# - interval: 45s        (Not too aggressive)
+
+version: '3.8'
+
+services:
+  
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: omega
+      POSTGRES_PASSWORD: omega_secure_password
+      POSTGRES_DB: omega_dynasty
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U omega"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - omega_network
+  
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - omega_network
+  
+  # ===== AGENT SERVICES =====
+  
+  omega_patrick:
+    build: ./services/patrick
+    image: brotherhood/omega-patrick:latest
+    ports:
+      - "3005:3005"
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    
+    # FIXED HEALTH CHECK (this was causing "unhealthy" status)
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3005/health"]
+      interval: 45s         # Check every 45s (not too aggressive)
+      timeout: 15s          # Wait up to 15s for response
+      retries: 5            # Allow 5 consecutive failures
+      start_period: 60s     # ✅ CRITICAL: Grace period for startup/init
+    
+    networks:
+      - omega_network
+    restart: unless-stopped
+  
+  omega_dj:
+    build: ./services/dj
+    image: brotherhood/omega-dj:latest
+    ports:
+      - "3003:3003"
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3003/health"]
+      interval: 45s
+      timeout: 15s
+      retries: 5
+      start_period: 60s     # ✅ CRITICAL
+    
+    networks:
+      - omega_network
+    restart: unless-stopped
+  
+  omega_bossman:
+    build: ./services/bossman
+    image: brotherhood/omega-bossman:latest
+    ports:
+      - "3006:3006"
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3006/health"]
+      interval: 45s
+      timeout: 15s
+      retries: 5
+      start_period: 60s     # ✅ CRITICAL
+    
+    networks:
+      - omega_network
+    restart: unless-stopped
+  
+  omega_hashim:
+    build: ./services/hashim
+    image: brotherhood/omega-hashim:latest
+    ports:
+      - "3004:3004"
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3004/health"]
+      interval: 45s
+      timeout: 15s
+      retries: 5
+      start_period: 60s     # ✅ CRITICAL
+    
+    networks:
+      - omega_network
+    restart: unless-stopped
+  
+  omega_hustle_bridge:
+    build: ./services/hustle-bridge
+    image: brotherhood/omega-hustle-bridge:latest
+    ports:
+      - "3001:3001"
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 45s
+      timeout: 15s
+      retries: 5
+      start_period: 60s     # ✅ CRITICAL
+    
+    networks:
+      - omega_network
+    restart: unless-stopped
+  
+  omega_oracle_engine:
+    build: ./services/oracle
+    image: brotherhood/omega-oracle-engine:latest
+    ports:
+      - "3002:3002"
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3002/health"]
+      interval: 45s
+      timeout: 15s
+      retries: 5
+      start_period: 60s     # ✅ CRITICAL
+    
+    networks:
+      - omega_network
+    restart: unless-stopped
+  
+  # ===== INFRASTRUCTURE SERVICES =====
+  
+  omega_dashboard:
+    build: ./services/dashboard
+    image: brotherhood/omega-dashboard:latest
+    ports:
+      - "8082:8082"
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/health"]
+      interval: 45s
+      timeout: 15s
+      retries: 5
+      start_period: 60s     # ✅ CRITICAL
+    
+    networks:
+      - omega_network
+    restart: unless-stopped
+  
+  omega_agentbus:
+    build: ./services/agentbus
+    image: brotherhood/omega-agentbus:latest
+    ports:
+      - "8081:8081"
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/health"]
+      interval: 45s
+      timeout: 15s
+      retries: 5
+      start_period: 60s     # ✅ CRITICAL
+    
+    networks:
+      - omega_network
+    restart: unless-stopped
+  
+  omega_telegram_bot:
+    build: ./services/telegram-bot
+    image: brotherhood/omega-telegram-bot:latest
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    
+    # Telegram bot doesn't expose HTTP, but add healthcheck anyway
+    healthcheck:
+      test: ["CMD-SHELL", "ps aux | grep -q 'telegram-bot' || exit 1"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    
+    networks:
+      - omega_network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  omega_network:
+    driver: bridge
+
+# ===== DEPLOYMENT NOTES =====
+#
+# 1. HEALTH CHECK CRITICAL SETTINGS:
+#    - start_period: 60s   ← This is what fixes the "unhealthy" issue
+#    - timeout: 15s        ← Give services time to respond
+#    - retries: 5          ← Don't fail immediately
+#
+# 2. BEFORE DEPLOYING:
+#    - Ensure .env file has all required API keys:
+#      HELIUS_API_KEY
+#      BIRDEYE_API_KEY  
+#      TELEGRAM_BOT_TOKEN
+#      TELEGRAM_CHAT_ID
+#      A2A_PATRICK_SEED, A2A_DJ_SEED, etc.
+#      AGENT_PATRICK_API_KEY, etc.
+#
+# 3. START CONTAINERS:
+#    docker-compose up -d --remove-orphans
+#
+# 4. WAIT 60s for initialization (start_period)
+#    sleep 60
+#
+# 5. CHECK HEALTH:
+#    docker ps
+#    # All containers should show "healthy" after 60s
+#
+# 6. IF STILL UNHEALTHY:
+#    - Check logs: docker logs omega_patrick --tail 100
+#    - Check port: curl http://localhost:3005/health
+#    - Check .env: grep HELIUS_API_KEY .env
+#
+# 7. MONITOR CONTINUOUSLY:
+#    python bin/monitor.py watch 30
+#
+# ===== HEALTH CHECK ENDPOINTS =====
+#
+# Each service should implement /health that returns:
+# - 200 OK if service is healthy
+# - 500 or other 5xx if service is unhealthy
+#
+# Example (Go):
+#
+#   http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+#       // Basic health checks
+#       if !isConnectedToDatabase() {
+#           w.WriteHeader(http.StatusServiceUnavailable)
+#           return
+#       }
+#       w.Header().Set("Content-Type", "application/json")
+#       w.WriteHeader(http.StatusOK)
+#       json.NewEncoder(w).Encode(map[string]string{"status": "healthy"})
+#   })
+#
+# This endpoint is called by Docker every 45 seconds.
+# Must respond within 15 seconds.
+# Services get 60 seconds to start before first health check.
