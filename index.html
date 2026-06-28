@@ -4,462 +4,530 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Brotherhood Omega Dynasty Empire — Autonomous multi-generational wealth ecosystem. CHUKUA KONTROLI YOTE." />
-  <title>Brotherhood Omega Dynasty Empire — BODE</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#D4AF37" />
+  <title>Brotherhood Omega Dynasty Empire | BODE — CHUKUA KONTROLI YOTE</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Brotherhood Omega Dynasty Empire | BODE" />
+  <meta property="og:description" content="Autonomous multi-agent wealth ecosystem. Four agents. One empire. CHUKUA KONTROLI YOTE." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- ===== NAVIGATION ===== -->
-  <nav id="navbar">
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">Ω <span>BODE</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-links" id="navLinks">
+      <a href="#hero" class="nav-logo">
+        <span class="omega" aria-hidden="true">Ω</span>
+        <span>BODE</span>
+      </a>
+
+      <ul class="nav-links" role="list">
         <li><a href="#mission">Mission</a></li>
-        <li><a href="#agents">The Agents</a></li>
+        <li><a href="#agents">Agents</a></li>
         <li><a href="#fortress">Bitcoin Fortress</a></li>
-        <li><a href="#anthems">Anthems</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#music">Music</a></li>
+        <li><a href="#family">Family</a></li>
+        <li><a href="#contact" class="nav-cta">Join</a></li>
       </ul>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
   <section id="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg-lines" aria-hidden="true"></div>
     <div class="hero-content">
-      <div class="hero-omega">Ω</div>
-      <h1 class="hero-title">Brotherhood Omega<br/>Dynasty Empire</h1>
-      <p class="hero-acronym">B · O · D · E</p>
+      <p class="hero-eyebrow">Brotherhood Omega Dynasty Empire</p>
+      <div class="hero-omega" aria-hidden="true">Ω</div>
+      <h1 class="hero-title">
+        The <span class="empire">Empire</span> Never Stops
+      </h1>
       <p class="hero-motto">CHUKUA KONTROLI YOTE</p>
-      <p class="hero-tagline">"From the dust to the crown, we keep it real"</p>
-      <div class="hero-cta">
-        <a href="#mission" class="btn-primary">Our Mission</a>
-        <a href="#agents" class="btn-secondary">Meet The Agents</a>
+      <p class="hero-motto-trans">Swahili: Take Control of Everything</p>
+      <p class="hero-mission">
+        An autonomous multi-generational wealth ecosystem built on real assets, disciplined execution,
+        and four specialized agents working 24/7 to create permanent financial freedom — for the family, forever.
+      </p>
+      <div class="hero-buttons">
+        <a href="#agents" class="btn-primary">Meet the Agents</a>
+        <a href="#mission" class="btn-secondary">Our Mission</a>
       </div>
-    </div>
-    <div class="hero-scroll-indicator">
-      <span>↓</span>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-target="4" data-suffix="">4</span>
+          <span class="stat-label">Autonomous Agents</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Operation</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Year Horizon</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Generational Legacy</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ===== MISSION ===== -->
+  <!-- =====================================================
+       MISSION
+       ===================================================== -->
   <section id="mission">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Our Purpose</span>
-        <h2>The Mission</h2>
-        <div class="gold-divider"></div>
-      </div>
+      <span class="tag">Our Purpose</span>
+      <h2 class="section-title">Mission &amp; Vision</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        "Real assets, real execution, real results — forever"
+      </p>
+
       <div class="mission-grid">
-        <div class="mission-statement">
-          <p class="mission-lead">Create permanent financial freedom and generational wealth through autonomous agents, strategic asset allocation, disciplined execution, and family-first decision making.</p>
-          <blockquote class="mission-quote">"Real assets, real execution, real results — forever."</blockquote>
+        <div class="mission-card reveal reveal-delay-1">
+          <div class="mission-icon">👑</div>
+          <h3>Sovereignty</h3>
+          <p>Operate with complete financial independence. No reliance on employers, banks, or external systems for survival.</p>
         </div>
-        <div class="mission-pillars">
-          <div class="pillar">
-            <div class="pillar-icon">🏛️</div>
-            <h3>Autonomous Agents</h3>
-            <p>Four specialized agents operating as a unified SWARM team, 24/7, with zero downtime.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon">💎</div>
-            <h3>Real Assets</h3>
-            <p>Bitcoin Fortress holdings, tangible wealth that cannot be inflated away. Generational permanence.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon">👑</div>
-            <h3>Family First</h3>
-            <p>Every decision prioritizes the long-term wellbeing of James, Annette, Leanna, and Eva.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon">🌍</div>
-            <h3>50-Year Vision</h3>
-            <p>Multi-generational time horizon. Roots in Tanzania/Kigamboni, Irish heritage, global reach.</p>
-          </div>
+        <div class="mission-card reveal reveal-delay-2">
+          <div class="mission-icon">🏛️</div>
+          <h3>Generational Wealth</h3>
+          <p>Build assets that endure 50+ years. Every decision is made through the lens of our children's children.</p>
         </div>
-      </div>
-      <div class="market-position">
-        <p><strong>Market Position:</strong> Autonomous wealth ecosystem for generational families</p>
-        <p><strong>Value Proposition:</strong> Four independent agents · Zero liquidation risk · Transparent reporting · Family-first decisions</p>
+        <div class="mission-card reveal reveal-delay-3">
+          <div class="mission-icon">⚙️</div>
+          <h3>Autonomous Execution</h3>
+          <p>Four specialized agents operate continuously, removing emotion and maximizing disciplined execution.</p>
+        </div>
+        <div class="mission-card reveal reveal-delay-4">
+          <div class="mission-icon">💎</div>
+          <h3>Real Assets Only</h3>
+          <p>Bitcoin, hard assets, and verified value. No paper promises — only permanent, tangible wealth.</p>
+        </div>
+        <div class="mission-card reveal reveal-delay-1">
+          <div class="mission-icon">👨‍👩‍👧</div>
+          <h3>Family First</h3>
+          <p>James, Annette, Leanna, and Eva are the foundation. Every decision protects and elevates the family first.</p>
+        </div>
+        <div class="mission-card reveal reveal-delay-2">
+          <div class="mission-icon">🌍</div>
+          <h3>Pan-African Roots</h3>
+          <p>Rooted in Tanzania/Kigamboni and Irish heritage. Global reach, grounded in cultural identity and strength.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== THE FOUR AGENTS ===== -->
+  <!-- =====================================================
+       AGENTS
+       ===================================================== -->
   <section id="agents">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">The SWARM</span>
-        <h2>The Four Agents</h2>
-        <div class="gold-divider"></div>
-        <p class="section-subtitle">Four autonomous agents. One unified purpose. 24/7 execution.</p>
-      </div>
+      <span class="tag">The SWARM Team</span>
+      <h2 class="section-title">The Four Agents</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">Four independent agents. One unified empire. Zero single points of failure.</p>
 
       <div class="agents-grid">
 
         <!-- PATRICK -->
-        <div class="agent-card" data-color="blue">
-          <div class="agent-header">
-            <div class="agent-symbol">🔱</div>
-            <div class="agent-meta">
-              <span class="agent-status">● ACTIVE</span>
-              <span class="agent-uptime">99.9% Uptime</span>
+        <div class="agent-card agent-patrick reveal reveal-delay-1">
+          <span class="agent-symbol">🔱</span>
+          <div class="agent-name">PATRICK</div>
+          <div class="agent-title">Intelligence Hunter · Scanner · Vision Keeper</div>
+          <p class="agent-desc">
+            Continuous market intelligence across 100+ simultaneous markets. Pattern recognition, sentiment analysis,
+            and early signal detection — finding opportunities before anyone else sees them.
+          </p>
+          <div class="agent-metrics">
+            <div class="metric">
+              <span class="metric-label">Scan Rate</span>
+              <span class="metric-value">100/min</span>
             </div>
-          </div>
-          <h3 class="agent-name">PATRICK</h3>
-          <p class="agent-title">Intelligence Hunter</p>
-          <p class="agent-subtitle">Scanner · Vision Keeper · Market Analyst</p>
-          <div class="agent-divider"></div>
-          <p class="agent-description">Real-time market scanner across 100+ simultaneous markets. Pattern recognition. Sentiment analysis. Early signal detection across Solana, Bitcoin, and EVM chains.</p>
-          <ul class="agent-stats">
-            <li><span class="stat-label">Scan Capacity</span><span class="stat-value">100/min</span></li>
-            <li><span class="stat-label">Accuracy Rate</span><span class="stat-value">40%</span></li>
-            <li><span class="stat-label">Response Time</span><span class="stat-value">&lt;100ms</span></li>
-            <li><span class="stat-label">Monthly Target</span><span class="stat-value">$1,500–2,000</span></li>
-          </ul>
-          <div class="agent-quote">"Vision clear. Intelligence shows. Market moving."</div>
-          <div class="agent-personality">
-            <span>Scholar</span><span>Truth-Seeker</span><span>Analyst</span><span>Visionary</span>
+            <div class="metric">
+              <span class="metric-label">Signal Selectivity</span>
+              <span class="metric-value">40% (high-confidence only)</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Response Time</span>
+              <span class="metric-value">&lt;100ms</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Uptime</span>
+              <span class="metric-value">99.9%</span>
+            </div>
           </div>
         </div>
 
         <!-- HASHIM -->
-        <div class="agent-card" data-color="gold">
-          <div class="agent-header">
-            <div class="agent-symbol">⚖️</div>
-            <div class="agent-meta">
-              <span class="agent-status">● ACTIVE</span>
-              <span class="agent-uptime">99.9% Uptime</span>
+        <div class="agent-card agent-hashim reveal reveal-delay-2">
+          <span class="agent-symbol">🏦</span>
+          <div class="agent-name">HASHIM</div>
+          <div class="agent-title">Treasury Master · Capital Allocator · Wealth Guardian</div>
+          <p class="agent-desc">
+            Manages all capital allocation, treasury operations, and wealth preservation. Ensures every dollar is
+            working efficiently — growing, compounding, and building the fortress.
+          </p>
+          <div class="agent-metrics">
+            <div class="metric">
+              <span class="metric-label">Role</span>
+              <span class="metric-value">Treasury</span>
             </div>
-          </div>
-          <h3 class="agent-name">HASHIM</h3>
-          <p class="agent-title">Treasury Keeper</p>
-          <p class="agent-subtitle">Wealth Manager · Capital Allocator · Fund Guardian</p>
-          <div class="agent-divider"></div>
-          <p class="agent-description">Manages treasury operations, capital allocation strategies, and long-term wealth preservation. Ensures every asset is deployed for maximum generational impact.</p>
-          <ul class="agent-stats">
-            <li><span class="stat-label">Treasury Management</span><span class="stat-value">24/7</span></li>
-            <li><span class="stat-label">Zero Liquidation</span><span class="stat-value">Risk</span></li>
-            <li><span class="stat-label">Asset Classes</span><span class="stat-value">Multi</span></li>
-            <li><span class="stat-label">Time Horizon</span><span class="stat-value">50+ yrs</span></li>
-          </ul>
-          <div class="agent-quote">"Capital secured. Empire funded. Dynasty growing."</div>
-          <div class="agent-personality">
-            <span>Protector</span><span>Strategist</span><span>Guardian</span><span>Builder</span>
+            <div class="metric">
+              <span class="metric-label">Focus</span>
+              <span class="metric-value">Capital Allocation</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Strategy</span>
+              <span class="metric-value">Zero liquidation</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Operation</span>
+              <span class="metric-value">24/7</span>
+            </div>
           </div>
         </div>
 
         <!-- BOSSMAN -->
-        <div class="agent-card" data-color="emerald">
-          <div class="agent-header">
-            <div class="agent-symbol">🛡️</div>
-            <div class="agent-meta">
-              <span class="agent-status">● ACTIVE</span>
-              <span class="agent-uptime">99.9% Uptime</span>
+        <div class="agent-card agent-bossman reveal reveal-delay-3">
+          <span class="agent-symbol">🛡️</span>
+          <div class="agent-name">BOSSMAN</div>
+          <div class="agent-title">Risk Guardian · Compliance Officer · Fortress Protector</div>
+          <p class="agent-desc">
+            The empire's last line of defense. Monitors risk across all positions, enforces stop-loss protocols,
+            and ensures the fortress is never breached — under any market condition.
+          </p>
+          <div class="agent-metrics">
+            <div class="metric">
+              <span class="metric-label">Role</span>
+              <span class="metric-value">Risk Guardian</span>
             </div>
-          </div>
-          <h3 class="agent-name">BOSSMAN</h3>
-          <p class="agent-title">Risk Guardian</p>
-          <p class="agent-subtitle">Risk Manager · Loss Preventer · Empire Defender</p>
-          <div class="agent-divider"></div>
-          <p class="agent-description">Monitors all positions and market conditions for risk exposure. Enforces strict risk parameters. The last line of defence between the empire and catastrophic loss.</p>
-          <ul class="agent-stats">
-            <li><span class="stat-label">Risk Monitoring</span><span class="stat-value">24/7</span></li>
-            <li><span class="stat-label">Max Drawdown</span><span class="stat-value">Controlled</span></li>
-            <li><span class="stat-label">Stop-Loss</span><span class="stat-value">Enforced</span></li>
-            <li><span class="stat-label">Capital Safety</span><span class="stat-value">100%</span></li>
-          </ul>
-          <div class="agent-quote">"Risk managed. Empire protected. Family secured."</div>
-          <div class="agent-personality">
-            <span>Disciplined</span><span>Enforcer</span><span>Defender</span><span>Vigilant</span>
+            <div class="metric">
+              <span class="metric-label">Priority</span>
+              <span class="metric-value">Capital preservation</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Protocol</span>
+              <span class="metric-value">Zero-tolerance loss</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Authority</span>
+              <span class="metric-value">Override capable</span>
+            </div>
           </div>
         </div>
 
         <!-- DJ SHARPSHOOTER -->
-        <div class="agent-card" data-color="silver">
-          <div class="agent-header">
-            <div class="agent-symbol">⚡</div>
-            <div class="agent-meta">
-              <span class="agent-status">● ACTIVE</span>
-              <span class="agent-uptime">99.9% Uptime</span>
+        <div class="agent-card agent-dj reveal reveal-delay-4">
+          <span class="agent-symbol">🎯</span>
+          <div class="agent-name">DJ SHARPSHOOTER</div>
+          <div class="agent-title">Executor · Trade Sniper · Precision Striker</div>
+          <p class="agent-desc">
+            Precision execution on the highest-conviction opportunities. When PATRICK identifies and BOSSMAN approves,
+            DJ pulls the trigger — fast, accurate, and with maximum impact.
+          </p>
+          <div class="agent-metrics">
+            <div class="metric">
+              <span class="metric-label">Role</span>
+              <span class="metric-value">Executor</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Style</span>
+              <span class="metric-value">High-conviction only</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Entry</span>
+              <span class="metric-value">Precision timing</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Network</span>
+              <span class="metric-value">Multi-chain</span>
             </div>
           </div>
-          <h3 class="agent-name">DJ SHARPSHOOTER</h3>
-          <p class="agent-title">The Executor</p>
-          <p class="agent-subtitle">Trade Executor · Precision Operator · Swift Mover</p>
-          <div class="agent-divider"></div>
-          <p class="agent-description">Executes trades and market actions with surgical precision. Translates PATRICK's intelligence and HASHIM's strategy into real-world results at lightning speed.</p>
-          <ul class="agent-stats">
-            <li><span class="stat-label">Execution Speed</span><span class="stat-value">Sub-50ms</span></li>
-            <li><span class="stat-label">Precision Rate</span><span class="stat-value">Elite</span></li>
-            <li><span class="stat-label">Slippage</span><span class="stat-value">Minimal</span></li>
-            <li><span class="stat-label">On-Time Rate</span><span class="stat-value">99.8%</span></li>
-          </ul>
-          <div class="agent-quote">"Target acquired. Executed. Empire advances."</div>
-          <div class="agent-personality">
-            <span>Precise</span><span>Swift</span><span>Reliable</span><span>Lethal</span>
-          </div>
         </div>
 
-      </div><!-- /agents-grid -->
-
-      <div class="swarm-flow">
-        <div class="swarm-node">PATRICK<br/><small>Scans &amp; Identifies</small></div>
-        <div class="swarm-arrow">→</div>
-        <div class="swarm-node">HASHIM<br/><small>Allocates Capital</small></div>
-        <div class="swarm-arrow">→</div>
-        <div class="swarm-node">BOSSMAN<br/><small>Validates Risk</small></div>
-        <div class="swarm-arrow">→</div>
-        <div class="swarm-node">DJ<br/><small>Executes</small></div>
       </div>
-
     </div>
   </section>
 
-  <!-- ===== BITCOIN FORTRESS ===== -->
+  <!-- =====================================================
+       BITCOIN FORTRESS
+       ===================================================== -->
   <section id="fortress">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Hard Assets</span>
-        <h2>Bitcoin Fortress</h2>
-        <div class="gold-divider"></div>
-        <p class="section-subtitle">Permanent. Unbreakable. Generational wealth that cannot be inflated away.</p>
+      <div class="fortress-header">
+        <span class="tag">Hard Assets</span>
+        <h2 class="section-title">Bitcoin Fortress</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">The permanent, unbreakable foundation of the empire — impossible to destroy</p>
       </div>
-      <div class="fortress-content">
-        <div class="fortress-philosophy">
+
+      <div class="fortress-grid">
+        <div class="fortress-card reveal reveal-delay-1">
           <div class="fortress-icon">₿</div>
-          <h3>The Fortress Philosophy</h3>
-          <p>Bitcoin is the foundation of the BODE hard asset strategy. Unlike paper assets, Bitcoin represents verifiable, scarce, digital property that transcends generations. Our Bitcoin Fortress holdings are the bedrock upon which the dynasty is built.</p>
-          <ul class="fortress-principles">
-            <li>🔒 Long-term HODL strategy — not for short-term speculation</li>
-            <li>💎 Diamond hands — never liquidated under pressure</li>
-            <li>🏰 Cold storage security — family keys, family sovereignty</li>
-            <li>📈 Generational wealth — held for 50+ year horizon</li>
-          </ul>
+          <h3>Bitcoin Core</h3>
+          <div class="value">Primary Reserve</div>
+          <p>The empire's monetary foundation — digital gold, held forever</p>
         </div>
-        <div class="fortress-stats-grid">
-          <div class="fortress-stat">
-            <div class="stat-icon">🌐</div>
-            <h4>Network Coverage</h4>
-            <p>Bitcoin, Solana, EVM chains — multi-chain diversification with Bitcoin as the anchor.</p>
+        <div class="fortress-card reveal reveal-delay-2">
+          <div class="fortress-icon">🏰</div>
+          <h3>Fortress Strategy</h3>
+          <div class="value">HODL + Accumulate</div>
+          <p>Continuous accumulation, zero panic selling, generational hold</p>
+        </div>
+        <div class="fortress-card reveal reveal-delay-3">
+          <div class="fortress-icon">🔒</div>
+          <h3>Self-Custody</h3>
+          <div class="value">Not Your Keys ≠ Yours</div>
+          <p>Full self-custody across multi-chain wallets — complete sovereignty</p>
+        </div>
+        <div class="fortress-card reveal reveal-delay-4">
+          <div class="fortress-icon">📈</div>
+          <h3>Multi-Chain</h3>
+          <div class="value">Solana · BTC · EVM</div>
+          <p>Diversified across Solana, Bitcoin, and EVM-compatible chains</p>
+        </div>
+      </div>
+
+      <div class="fortress-principles">
+        <div class="principle reveal reveal-delay-1">
+          <span class="principle-icon">💎</span>
+          <div>
+            <h4>Diamond Hands</h4>
+            <p>Permanent hold strategy. Bitcoin is not traded — it is accumulated and preserved.</p>
           </div>
-          <div class="fortress-stat">
-            <div class="stat-icon">🔑</div>
-            <h4>Sovereign Custody</h4>
-            <p>Not your keys, not your coins. BODE maintains full self-custody of all Bitcoin assets.</p>
+        </div>
+        <div class="principle reveal reveal-delay-2">
+          <span class="principle-icon">⚡</span>
+          <div>
+            <h4>Lightning Network</h4>
+            <p>Layer 2 utilization for fast, low-cost transactions while the fortress stays untouched.</p>
           </div>
-          <div class="fortress-stat">
-            <div class="stat-icon">⚔️</div>
+        </div>
+        <div class="principle reveal reveal-delay-3">
+          <span class="principle-icon">🛡️</span>
+          <div>
             <h4>Zero Liquidation</h4>
-            <p>BOSSMAN's risk protocols ensure Bitcoin holdings are never liquidated — ever.</p>
-          </div>
-          <div class="fortress-stat">
-            <div class="stat-icon">🏆</div>
-            <h4>Empire Reserve</h4>
-            <p>Bitcoin serves as the empire's ultimate reserve — the crown jewel of the dynasty.</p>
+            <p>BOSSMAN ensures no leveraged position ever threatens the core Bitcoin holdings.</p>
           </div>
         </div>
-      </div>
-      <div class="fortress-disclaimer">
-        <p>⚠️ All asset operations are managed autonomously by the BODE SWARM agents with human oversight. Past performance does not guarantee future results.</p>
+        <div class="principle reveal reveal-delay-4">
+          <span class="principle-icon">🌱</span>
+          <div>
+            <h4>Compound Forever</h4>
+            <p>Every satoshi earned is reinvested. The fortress grows every single day, without exception.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== MUSIC ANTHEMS ===== -->
-  <section id="anthems">
+  <!-- =====================================================
+       MUSIC ANTHEMS
+       ===================================================== -->
+  <section id="music">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Sound of the Empire</span>
-        <h2>Empire Anthems</h2>
-        <div class="gold-divider"></div>
-        <p class="section-subtitle">Music that fuels the mission. The heartbeat of Brotherhood Omega.</p>
-      </div>
-      <div class="anthems-grid">
-        <div class="anthem-card featured">
-          <div class="anthem-play">▶</div>
+      <span class="tag">The Soundtrack</span>
+      <h2 class="section-title">Empire Anthems</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">Music is the heartbeat of the empire — from the block to the crown</p>
+
+      <div class="music-grid">
+        <div class="anthem-card reveal reveal-delay-1">
+          <span class="anthem-number">01</span>
           <div class="anthem-info">
-            <span class="anthem-badge">🎵 Empire Anthem</span>
             <h3>CHUKUA KONTROLI YOTE</h3>
-            <p class="anthem-artist">Brotherhood Omega Dynasty Empire</p>
-            <p class="anthem-desc">The defining anthem of the empire. A declaration of sovereignty, wealth, and family-first power. From the dust to the crown — this is the sound of BODE rising.</p>
+            <p>The empire's war cry — in Swahili, in English, in every tongue</p>
+            <div class="anthem-tags">
+              <span class="anthem-tag">Anthem</span>
+              <span class="anthem-tag">Motivational</span>
+              <span class="anthem-tag">Swahili</span>
+            </div>
           </div>
         </div>
-        <div class="anthem-card">
-          <div class="anthem-play">▶</div>
+
+        <div class="anthem-card reveal reveal-delay-2">
+          <span class="anthem-number">02</span>
           <div class="anthem-info">
-            <span class="anthem-badge">🔱 Agent Theme</span>
-            <h3>Intelligence Hunter</h3>
-            <p class="anthem-artist">PATRICK — The Scanner</p>
-            <p class="anthem-desc">Sharp beats for sharp minds. The relentless pulse of market scanning and opportunity identification.</p>
+            <h3>From the Dust to the Crown</h3>
+            <p>The origin story — where we came from, where we're going, why we never stop</p>
+            <div class="anthem-tags">
+              <span class="anthem-tag">Story</span>
+              <span class="anthem-tag">Legacy</span>
+              <span class="anthem-tag">Hustle</span>
+            </div>
           </div>
         </div>
-        <div class="anthem-card">
-          <div class="anthem-play">▶</div>
+
+        <div class="anthem-card reveal reveal-delay-3">
+          <span class="anthem-number">03</span>
           <div class="anthem-info">
-            <span class="anthem-badge">⚖️ Agent Theme</span>
-            <h3>Treasury Vault</h3>
-            <p class="anthem-artist">HASHIM — The Keeper</p>
-            <p class="anthem-desc">Deep, resonant frequencies reflecting the weight of wealth and the gravity of dynasty building.</p>
+            <h3>Bitcoin Fortress</h3>
+            <p>Hard money, hard time. The sound of accumulation and diamond hands</p>
+            <div class="anthem-tags">
+              <span class="anthem-tag">Bitcoin</span>
+              <span class="anthem-tag">Hard Assets</span>
+              <span class="anthem-tag">HODL</span>
+            </div>
           </div>
         </div>
-        <div class="anthem-card">
-          <div class="anthem-play">▶</div>
+
+        <div class="anthem-card reveal reveal-delay-4">
+          <span class="anthem-number">04</span>
           <div class="anthem-info">
-            <span class="anthem-badge">🛡️ Agent Theme</span>
-            <h3>Guardian Protocol</h3>
-            <p class="anthem-artist">BOSSMAN — Risk Guardian</p>
-            <p class="anthem-desc">Powerful, protective rhythms that embody the discipline and vigilance of the empire's defender.</p>
+            <h3>Four Agents Rising</h3>
+            <p>PATRICK scans. HASHIM holds. BOSSMAN guards. DJ executes. Together — unstoppable.</p>
+            <div class="anthem-tags">
+              <span class="anthem-tag">SWARM</span>
+              <span class="anthem-tag">Team</span>
+              <span class="anthem-tag">Execution</span>
+            </div>
           </div>
         </div>
-        <div class="anthem-card">
-          <div class="anthem-play">▶</div>
+
+        <div class="anthem-card reveal reveal-delay-1">
+          <span class="anthem-number">05</span>
           <div class="anthem-info">
-            <span class="anthem-badge">⚡ Agent Theme</span>
-            <h3>Sharpshooter Mode</h3>
-            <p class="anthem-artist">DJ SHARPSHOOTER — The Executor</p>
-            <p class="anthem-desc">Precise, electric, unstoppable. The sound of flawless execution and empire advancement.</p>
+            <h3>M'TANGA (Tanzania Roots)</h3>
+            <p>Kigamboni heritage. Pan-African pride. Where the empire was born in spirit.</p>
+            <div class="anthem-tags">
+              <span class="anthem-tag">Heritage</span>
+              <span class="anthem-tag">Tanzania</span>
+              <span class="anthem-tag">Pan-African</span>
+            </div>
           </div>
         </div>
-        <div class="anthem-card coming-soon">
-          <div class="anthem-play cs">◉</div>
+
+        <div class="anthem-card reveal reveal-delay-2">
+          <span class="anthem-number">06</span>
           <div class="anthem-info">
-            <span class="anthem-badge">🎧 Coming Soon</span>
-            <h3>Dynasty Forever</h3>
-            <p class="anthem-artist">BODE SWARM Collective</p>
-            <p class="anthem-desc">The next chapter in the Brotherhood Omega sound. A generational anthem for a 50-year dynasty.</p>
+            <h3>Keep It Real</h3>
+            <p>The secondary motto set to music — authenticity, grind, and generational commitment</p>
+            <div class="anthem-tags">
+              <span class="anthem-tag">Authenticity</span>
+              <span class="anthem-tag">Grind</span>
+              <span class="anthem-tag">Legacy</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TEAM ===== -->
-  <section id="team">
+  <!-- =====================================================
+       FAMILY
+       ===================================================== -->
+  <section id="family">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">The Foundation</span>
-        <h2>The Family</h2>
-        <div class="gold-divider"></div>
-        <p class="section-subtitle">Every autonomous agent, every trade, every asset — it all serves the family. This is who we fight for.</p>
-      </div>
-      <div class="team-grid">
-        <div class="team-card patriarch">
-          <div class="team-crown">👑</div>
-          <div class="team-omega">Ω</div>
-          <h3>James</h3>
-          <p class="team-role">Patriarch · Visionary · Founder</p>
-          <p class="team-desc">The vision behind Brotherhood Omega Dynasty Empire. Builder of the framework, architect of the strategy, guardian of the family legacy.</p>
-          <div class="team-heritage">
-            <span>🇹🇿 Tanzania/Kigamboni</span>
-            <span>🍀 Irish Heritage (La Touche)</span>
-          </div>
+      <span class="tag">The Foundation</span>
+      <h2 class="section-title">The Family</h2>
+      <div class="divider"></div>
+
+      <p class="family-intro">
+        Every decision, every trade, every risk calculation has one ultimate purpose:
+        the permanent financial freedom and generational wealth of James, Annette, Leanna, and Eva.
+        The empire exists to serve the family — not the other way around.
+      </p>
+
+      <div class="family-grid">
+        <div class="family-card reveal reveal-delay-1">
+          <div class="family-avatar">👨</div>
+          <div class="family-name">James</div>
+          <div class="family-role">Patriarch · Visionary</div>
         </div>
-        <div class="team-card">
-          <div class="team-crown">💎</div>
-          <h3>Annette</h3>
-          <p class="team-role">Co-Founder · Family Anchor</p>
-          <p class="team-desc">The steadying force of the empire. Her wisdom and strength form the emotional foundation upon which all dynasty decisions are made.</p>
+        <div class="family-card reveal reveal-delay-2">
+          <div class="family-avatar">👩</div>
+          <div class="family-name">Annette</div>
+          <div class="family-role">Matriarch · Foundation</div>
         </div>
-        <div class="team-card">
-          <div class="team-crown">🌟</div>
-          <h3>Leanna</h3>
-          <p class="team-role">Next Generation · Heir</p>
-          <p class="team-desc">The future the empire is being built for. Her prosperity, freedom, and opportunities are the north star of every decision made today.</p>
+        <div class="family-card reveal reveal-delay-3">
+          <div class="family-avatar">👧</div>
+          <div class="family-name">Leanna</div>
+          <div class="family-role">Next Generation</div>
         </div>
-        <div class="team-card">
-          <div class="team-crown">✨</div>
-          <h3>Eva</h3>
-          <p class="team-role">Next Generation · Heir</p>
-          <p class="team-desc">Part of the generational legacy this dynasty exists to create. Her future is the ultimate measure of the empire's success.</p>
+        <div class="family-card reveal reveal-delay-4">
+          <div class="family-avatar">👶</div>
+          <div class="family-name">Eva</div>
+          <div class="family-role">Next Generation</div>
         </div>
       </div>
-      <div class="team-mission-note">
-        <p>Brotherhood Omega Dynasty Empire operates on a simple truth: <strong>every autonomous agent, every Bitcoin held, every trade executed is a love letter to the next generation.</strong></p>
-        <p>CHUKUA KONTROLI YOTE — Take Control of Everything — for the family, forever.</p>
+
+      <div class="promise-box reveal">
+        <h3>The Empire's Promise</h3>
+        <p>
+          "We build this not for today, but for the next fifty years.
+          Not for ourselves alone, but for every generation that follows.
+          Real assets. Real execution. Real results — forever.
+          From the dust to the crown, we keep it real."
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
+  <!-- =====================================================
+       CONTACT / CTA
+       ===================================================== -->
   <section id="contact">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Connect</span>
-        <h2>Join The Empire</h2>
-        <div class="gold-divider"></div>
-        <p class="section-subtitle">Brotherhood Omega Dynasty Empire is a private, family-first wealth ecosystem. Interested in BODE's mission? Reach out.</p>
+      <span class="tag">Join the Empire</span>
+      <h2 class="section-title">BODE — Built Different</h2>
+      <div class="divider"></div>
+
+      <p class="contact-subtitle">
+        The Brotherhood Omega Dynasty Empire operates on a simple principle:
+        real assets, real execution, real results. Forever.
+        The agents never sleep. The empire never stops.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#agents" class="btn-primary">Meet the SWARM</a>
+        <a href="#fortress" class="btn-secondary">Bitcoin Fortress</a>
       </div>
-      <div class="contact-content">
-        <div class="contact-mottos">
-          <div class="motto-card">
-            <span class="motto-symbol">Ω</span>
-            <p class="motto-swahili">CHUKUA KONTROLI YOTE</p>
-            <p class="motto-english">Take Control of Everything</p>
-          </div>
-          <div class="contact-tagline">
-            <p>"From the dust to the crown, we keep it real."</p>
-            <p>— Brotherhood Omega Dynasty Empire</p>
-          </div>
-        </div>
-        <div class="contact-cta">
-          <p>The empire is always growing. The dynasty is always building.</p>
-          <p>If you are aligned with our mission of autonomous wealth creation and family-first decision making, connect with us.</p>
-          <a href="#" class="btn-primary contact-btn">✉ Get In Touch</a>
-        </div>
-      </div>
+
+      <p class="contact-motto reveal">CHUKUA KONTROLI YOTE</p>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer id="footer">
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer>
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-omega">Ω</div>
-          <p class="footer-name">Brotherhood Omega<br/>Dynasty Empire</p>
-          <p class="footer-acronym">BODE</p>
-          <p class="footer-tagline">CHUKUA KONTROLI YOTE</p>
-        </div>
-        <div class="footer-links">
-          <h4>Navigate</h4>
-          <ul>
-            <li><a href="#mission">Mission</a></li>
-            <li><a href="#agents">The Agents</a></li>
-            <li><a href="#fortress">Bitcoin Fortress</a></li>
-            <li><a href="#anthems">Anthems</a></li>
-            <li><a href="#team">Team</a></li>
-          </ul>
-        </div>
-        <div class="footer-agents">
-          <h4>The SWARM</h4>
-          <ul>
-            <li>🔱 PATRICK — Intelligence Hunter</li>
-            <li>⚖️ HASHIM — Treasury Keeper</li>
-            <li>🛡️ BOSSMAN — Risk Guardian</li>
-            <li>⚡ DJ SHARPSHOOTER — Executor</li>
-          </ul>
-        </div>
-        <div class="footer-values">
-          <h4>Core Values</h4>
-          <ul>
-            <li>Real assets, real results</li>
-            <li>Family-first decisions</li>
-            <li>Zero liquidation risk</li>
-            <li>Multi-generational vision</li>
-            <li>Autonomous execution</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Brotherhood Omega Dynasty Empire. All rights reserved.</p>
-        <p class="footer-disclaimer">This website is for informational purposes only. Nothing herein constitutes financial advice. All investments carry risk.</p>
-      </div>
+      <div class="footer-logo" aria-hidden="true">Ω</div>
+      <div class="footer-name">Brotherhood Omega Dynasty Empire</div>
+      <div class="footer-tagline">"From the dust to the crown, we keep it real"</div>
+
+      <ul class="footer-links" role="list">
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#agents">Agents</a></li>
+        <li><a href="#fortress">Bitcoin Fortress</a></li>
+        <li><a href="#music">Music</a></li>
+        <li><a href="#family">Family</a></li>
+      </ul>
+
+      <div class="footer-divider"></div>
+      <p class="footer-copy">
+        &copy; <span id="year"></span> Brotherhood Omega Dynasty Empire · BODE ·
+        CHUKUA KONTROLI YOTE
+      </p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

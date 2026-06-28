@@ -4,8 +4,8 @@
   "description": "Official Brotherhood Omega Dynasty Empire website",
   "type": "module",
   "scripts": {
-    "build": "mkdir -p dist && cp -r public/* dist/ 2>/dev/null || true && cp index.html script.js style.css dist/ 2>/dev/null || true",
-    "test": "npm run build && test -f dist/index.html && test -f dist/script.js && test -f dist/style.css && echo 'Website build validation passed'",
+    "build": "mkdir -p dist/css dist/js && cp index.html dist/ && cp css/styles.css dist/css/ && cp js/main.js dist/js/",
+    "test": "npm run build && test -f dist/index.html && test -f dist/css/styles.css && test -f dist/js/main.js && echo 'Website build validation passed'",
     "dev": "echo 'Development server would start here'"
   },
   "keywords": [
