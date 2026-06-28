@@ -5,6 +5,7 @@ from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
+    DROPLET_IP: str = "206.189.118.255"
     MASTER_ENCRYPTION_KEY: SecretStr = Field(default="test-key")
     JWT_SECRET_KEY: SecretStr = Field(default="test-jwt-secret")
     JWT_ALGORITHM: str = "HS256"
