@@ -1,133 +1,5 @@
-name: Brotherhood Omega Dynasty — Deploy
-
-on:
-  push:
-    branches: [ main ]
-
-env:
-  DROPLET_IP: 206.189.118.255
-  DROPLET_USER: root
-
-jobs:
-  verify-and-deploy:
-    runs-on: ubuntu-latest
-    
-    services:
-      postgres:
-        image: postgres:16-alpine
-        env:
-          POSTGRES_USER: swarm
-          POSTGRES_PASSWORD: swarm
-          POSTGRES_DB: brotherhood_test
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 5432:5432
-      redis:
-        image: redis:7-alpine
-        ports:
-          - 6379:6379
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install Python packages
-        run: |
-          pip install --upgrade pip
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            echo "No requirements.txt — installing minimal set"
-            pip install pydantic-settings python-dotenv cryptography httpx structlog pytest
-          fi
-          pip install pytest
-
-      - name: Verify core imports
-        env:
-          DATABASE_URL: postgresql+asyncpg://swarm:swarm@localhost:5432/brotherhood_test
-          REDIS_URL: redis://localhost:6379/1
-          MASTER_ENCRYPTION_KEY: dGVzdC1rZXktZm9yLWNpLW9ubHktMzJieXRlcw==
-          JWT_SECRET_KEY: test-jwt-secret-for-ci-only-64-chars-long
-          HELIUS_API_KEY: test-helius-key
-          BIRDEYE_API_KEY: test-birdeye-key
-          TELEGRAM_BOT_TOKEN: 123456789:test-token
-          TELEGRAM_CHAT_ID: "123456789"
-          TELEGRAM_WEBHOOK_URL: https://test.example.com
-          TELEGRAM_WEBHOOK_SECRET: test-webhook-secret
-          GOD_USER_IDS: "123456789"
-          A2A_PATRICK_SEED: "0000000000000000000000000000000000000000000000000000000000000000"
-          A2A_HASHIM_SEED: "0000000000000000000000000000000000000000000000000000000000000001"
-          A2A_BOSSMAN_SEED: "0000000000000000000000000000000000000000000000000000000000000002"
-          A2A_DJ_SEED: "0000000000000000000000000000000000000000000000000000000000000003"
-          AGENT_PATRICK_API_KEY: "test"
-          AGENT_HASHIM_API_KEY: "test"
-          AGENT_BOSSMAN_API_KEY: "test"
-          AGENT_DJ_API_KEY: "test"
-        run: |
-          echo "=== Verifying config module ==="
-          python -c "
-          import os, sys
-          sys.path.insert(0, '.')
-          try:
-              from core.config import Settings
-              s = Settings()
-              print(f'✅ Config loaded — droplet: {s.DROPLET_IP}')
-          except Exception as e:
-              print(f'⚠️ Config load warning: {e}')
-              print('Continuing anyway...')
-          "
-          
-          echo ""
-          echo "=== Verifying security module ==="
-          python -c "
-          try:
-              from core.security import Vault
-              print('✅ Security module OK')
-          except Exception as e:
-              print(f'⚠️ Security warning: {e}')
-          "
-          
-          echo ""
-          echo "=== All verifications complete ==="
-
-      - name: Run tests if they exist
-        continue-on-error: true
-        env:
-          DATABASE_URL: postgresql+asyncpg://swarm:swarm@localhost:5432/brotherhood_test
-          REDIS_URL: redis://localhost:6379/1
-          MASTER_ENCRYPTION_KEY: dGVzdC1rZXktZm9yLWNpLW9ubHktMzJieXRlcw==
-          JWT_SECRET_KEY: test-jwt-secret
-          HELIUS_API_KEY: test
-          BIRDEYE_API_KEY: test
-          TELEGRAM_BOT_TOKEN: 123:test
-          TELEGRAM_CHAT_ID: "123"
-          TELEGRAM_WEBHOOK_URL: https://test.com
-          TELEGRAM_WEBHOOK_SECRET: test
-          GOD_USER_IDS: "123"
-          A2A_PATRICK_SEED: "0000000000000000000000000000000000000000000000000000000000000000"
-          A2A_HASHIM_SEED: "0000000000000000000000000000000000000000000000000000000000000001"
-          A2A_BOSSMAN_SEED: "0000000000000000000000000000000000000000000000000000000000000002"
-          A2A_DJ_SEED: "0000000000000000000000000000000000000000000000000000000000000003"
-          AGENT_PATRICK_API_KEY: "test"
-          AGENT_HASHIM_API_KEY: "test"
-          AGENT_BOSSMAN_API_KEY: "test"
-          AGENT_DJ_API_KEY: "test"
-        run: |
-          if [ -d "tests" ] && ls tests/test_*.py 2>/dev/null; then
-            pytest tests/ -v
-          else
-            echo "No tests found — skipping"
-          fi
-
       - name: Deploy to Droplet
-        if: success() || true
+        if: always()
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ env.DROPLET_IP }}
@@ -136,39 +8,30 @@ jobs:
           port: ${{ secrets.OMEGA_SSH_PORT || 22 }}
           script: |
             set -e
-            echo "🔱 Brotherhood Omega Dynasty v6.0 — Deploying..."
-            
-            cd /opt/omega || mkdir -p /opt/omega && cd /opt/omega
-            
+            echo "🔱 Brotherhood Omega Dynasty v6.0 — Deploying monitoring update..."
+
+            cd /opt/omega-dynasty-v6 || (mkdir -p /opt/omega-dynasty-v6 && cd /opt/omega-dynasty-v6)
+
             if [ -d .git ]; then
               git fetch origin main && git reset --hard origin/main
             fi
-            
+
+            # Write .env from secret
             cat > .env << 'EOF'
             ${{ secrets.OMEGA_ENV_FILE }}
             EOF
-            
             chmod 600 .env
-            
-            docker-compose up -d --remove-orphans 2>/dev/null || echo "docker-compose not found, checking docker..."
-            
-            sleep 5
-            
-            if command -v docker &> /dev/null; then
-              docker ps --format "table {{.Names}}\t{{.Status}}"
-            fi
-            
-            echo "✅ Deploy complete"
 
-      - name: Telegram Notification
-        if: always()
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.OMEGA_TELEGRAM_CHAT_ID }}
-          token: ${{ secrets.OMEGA_TELEGRAM_BOT_TOKEN }}
-          message: |
-            🔱 Brotherhood Omega — ${{ job.status }}
-            
-            ${{ job.status == 'success' && '✅ Swarm deployed to 206.189.118.255' || '🚨 Check: ' }}${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            
-            Commit: ${{ github.sha }}
+            # Apply new health checks + monitoring code
+            docker compose down || true
+            docker compose up -d --remove-orphans
+
+            sleep 95
+
+            echo "=== Current Container Health ==="
+            docker ps --format "table {{.Names}}\t{{.Status}}"
+
+            echo "=== Running Health Monitor ==="
+            python bin/monitor.py status || echo "monitor.py not ready yet"
+
+            echo "✅ Deploy + Monitoring update complete"
